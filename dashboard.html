@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Compare</a>
+        </nav>
+        <div class="theme-toggle">☀️</div>
+    </header>
+
+    <!-- Cards Section -->
+    <section class="cards">
+        <div class="card yellow">20 Lakhs<br><small>Total number of micro improvements triggered<br>+20,000 Today</small></div>
+        <div class="card blue">20 Lakhs<br><small>Total number of States improving in India<br>+20,000 Today</small></div>
+        <div class="card green">20 Lakhs<br><small>Total number of districts improving in India<br>+20,000 Today</small></div>
+        <div class="card yellow">20 Lakhs<br><small>Total schools improving in India<br>+20,000 Today</small></div>
+        <div class="card blue">20 Lakhs<br><small>Total school leaders doing improvement<br>+20,000 Today</small></div>
+    </section>
+
+    <!-- Map and Stats Section -->
+    <section class="map-section">
+        <div id="map"></div>
+        <div class="stats">
+            <div class="year-switcher">
+                <button>2022</button>
+                <button>2023</button>
+                <button class="active">2024</button>
+            </div>
+            <canvas id="trendChart"></canvas>
+            <div class="leading-states">
+                <h3>Leading states</h3>
+                <ul>
+                    <li>Andhra Pradesh: 77%</li>
+                    <li>Haryana: 60%</li>
+                    <li>Karnataka: 64%</li>
+                    <li>Bihar: 43%</li>
+                    <li>Telangana: 40%</li>
+                    <li>Nagaland: 30%</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="submissions-comparison">
+        <h3>Monthly Submissions Comparison (NAS vs MIP)</h3>
+        <canvas id="comparisonChart"></canvas>
+    </section>
+
+    <section class="themes-section">
+        <h3>Themes</h3>
+        <div class="charts-container">
+            <div class="chart-left">
+                <canvas id="themesPieChart" width="400" height="400"></canvas>
+            </div>
+            <div class="chart-right">
+                <h4>Theme Breakdown</h4>
+                <canvas id="drilldownDonutChart" ></canvas>
+                <div class="status-legend">
+                    <span class="legend-item started">STARTED</span>
+                    <span class="legend-item completed">COMPLETED</span>
+                    <span class="legend-item in-progress">IN PROGRESS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

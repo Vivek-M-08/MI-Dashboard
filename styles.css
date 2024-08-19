@@ -1,0 +1,164 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+header .theme-toggle {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card.yellow {
+    background-color: #f9f871;
+}
+
+.card.blue {
+    background-color: #cce5ff;
+}
+
+.card.green {
+    background-color: #d4edda;
+}
+
+.map-section {
+    display: flex;
+    padding: 20px;
+}
+
+#map {
+    width: 70%;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.stats {
+    width: 30%;
+    padding: 20px;
+    background-color: #dadef7;
+    border-radius: 10px;
+    margin-left: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adding a shadow to elevate the section */
+}
+
+/* .stats {
+    width: 30%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 20px;
+} */
+
+
+.year-switcher button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.year-switcher .active {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.leading-states h3 {
+    margin-top: 20px;
+}
+
+.submissions-comparison {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submissions-comparison h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.themes-section {
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.themes-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chart-left,
+.chart-right {
+    flex: 1;
+    text-align: center;
+}
+
+.chart-left canvas,
+.chart-right canvas {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.status-legend {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.legend-item {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.started { background-color: #ffcccb; }
+.completed { background-color: #ffb6c1; }
+.in-progress { background-color: #ff8a80; }
