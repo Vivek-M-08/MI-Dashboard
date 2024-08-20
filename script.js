@@ -5,17 +5,24 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
 }).addTo(map);
 
-// Add markers (replace with your actual data)
-var markersData = [
-    { lat: 28.7041, lng: 77.1025, url: 'https://example.com/delhi' },
-    { lat: 19.0760, lng: 72.8777, url: 'https://example.com/mumbai' },
-    // Add more markers here
-];
-
-markersData.forEach(function (marker) {
-    L.marker([marker.lat, marker.lng]).addTo(map)
-        .bindPopup(`<a href="${marker.url}" target="_blank">Go to School</a>`);
-});
+// Fetch data from JSON and add markers dynamically
+fetch('/json/schools.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(function (school) {
+            var marker = L.marker([school.lat, school.lng]).addTo(map);
+            // Show metadata on hover with Tooltip
+            marker.bindTooltip(
+                `<strong>${school.name}</strong><br>${school.address}<br>${school.metadata}`,
+                { permanent: false, direction: "top", offset: [0, -10] }
+            );
+            // Navigate to the school's page on click
+            marker.on('click', function () {
+                window.location.href = school.url;
+            });
+        });
+    })
+    .catch(error => console.error('Error fetching school data:', error));
 
 
 // Initializing data for the trend chart and leading states by year
@@ -90,16 +97,16 @@ document.querySelectorAll('.year-switcher button').forEach(function (button) {
         document.querySelectorAll('.year-switcher button').forEach(function (btn) {
             btn.classList.remove('active');
         });
-        
+
         // Add 'active' class to the clicked button
         button.classList.add('active');
 
         var selectedYear = button.textContent;
-        
+
         // Update chart data
         trendChart.data.datasets[0].data = trendData[selectedYear];
         trendChart.update();
-        
+
         // Update leading states list
         updateLeadingStates(selectedYear);
     });
@@ -126,7 +133,7 @@ var comparisonChart = new Chart(comparisonCtx, {
     type: 'line',
     data: {
         labels: [
-            'Jan 2022', 'Feb 2022', 'Mar 2022', 'Apr 2022', 'May 2022', 
+            'Jan 2022', 'Feb 2022', 'Mar 2022', 'Apr 2022', 'May 2022',
             'Jun 2022', 'Jul 2022', 'Aug 2022', 'Sep 2022', 'Oct 2022',
             'Nov 2022', 'Dec 2022', 'Jan 2023', 'Feb 2023', 'Mar 2023',
             'Apr 2023', 'May 2023', 'Jun 2023', 'Jul 2023', 'Aug 2023',
