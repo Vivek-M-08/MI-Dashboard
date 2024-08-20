@@ -147,18 +147,29 @@ header .theme-toggle {
 }
 
 .status-legend {
+    display: inline-block;
+    justify-content: space-between;
     margin-top: 20px;
-    text-align: center;
+    gap: 50px;
 }
 
 .legend-item {
     display: inline-block;
-    margin: 0 10px;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 14px;
+    color: black;
+    font-weight: bold;
 }
 
-.started { background-color: #ffcccb; }
-.completed { background-color: #ffb6c1; }
-.in-progress { background-color: #ff8a80; }
+.legend-item.started {
+    background-color: #cce5ff;
+}
+
+.legend-item.in-progress {
+    background-color: #66b3ff;
+}
+
+.legend-item.completed {
+    background-color: #0056b3;
+}
+

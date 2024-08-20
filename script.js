@@ -112,21 +112,6 @@ document.querySelectorAll('.year-switcher button').forEach(function (button) {
     });
 });
 
-// var ctx = document.getElementById('trendChart').getContext('2d');
-// var trendChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-//         datasets: [{
-//             label: 'Improvement Trend',
-//             data: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120], // Replace with actual data
-//             borderColor: 'rgba(75, 192, 192, 1)',
-//             borderWidth: 2,
-//             fill: false
-//         }]
-//     }
-// });
-
 // Initialize the NAS vs MIP submissions comparison chart
 var comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
 var comparisonChart = new Chart(comparisonCtx, {
@@ -194,12 +179,12 @@ var themesPieChart = new Chart(themesPieCtx, {
             label: 'Themes',
             data: [238, 178, 126, 70, 215, 150],
             backgroundColor: [
-                '#42a5f5',
-                '#ba68c8',
-                '#ef5350',
-                '#26c6da',
-                '#ffa726',
-                '#66bb6a'
+                '#42a5f5', // Technology
+                '#ba68c8', // Pedagogy
+                '#ef5350', // Curriculum
+                '#26c6da', // Human Resources
+                '#ffa726', // Energy
+                '#66bb6a'  // Infrastructure
             ],
             borderColor: '#fff',
             borderWidth: 1
@@ -216,19 +201,18 @@ var themesPieChart = new Chart(themesPieCtx, {
     }
 });
 
-// Data for Drilldown Donut Chart
 var donutCtx = document.getElementById('drilldownDonutChart').getContext('2d');
 var drilldownDonutChart = new Chart(donutCtx, {
     type: 'doughnut',
     data: {
-        labels: ['Started', 'Completed', 'In Progress'],
+        labels: ['Started', 'In Progress', 'Completed'],
         datasets: [{
             label: 'MIP',
-            data: [32, 50, 18],
+            data: [32, 18, 50], // Adjust the order of data to match the labels
             backgroundColor: [
-                '#ffcccb',
-                '#ffb6c1',
-                '#ff8a80'
+                '#cce5ff',  // Light blue for Started
+                '#66b3ff',  // Medium blue for In Progress
+                '#0056b3',  // Dark blue for Completed
             ],
             borderColor: '#fff',
             borderWidth: 1
@@ -239,32 +223,46 @@ var drilldownDonutChart = new Chart(donutCtx, {
         plugins: {
             legend: {
                 display: false
-                // position: 'top',
-                // align: 'center'
             }
         }
     }
 });
 
-
+// Handling clicks on the Themes Pie Chart
 document.getElementById('themesPieChart').onclick = function(evt) {
     var activePoints = themesPieChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
     var firstPoint = activePoints[0];
-    
+
     if (firstPoint) {
         var label = themesPieChart.data.labels[firstPoint.index];
-        
+
         // Example data for drill-down, you can replace with dynamic data based on label
         var drillDownData = {
-            'Technology': [32, 50, 18],
+            'Technology': [32, 18, 50],
             'Pedagogy': [40, 30, 30],
-            'Curriculum': [20, 60, 20],
-            'Human Resources': [10, 70, 20],
-            'Energy': [25, 50, 25],
-            'Infrastructure': [15, 65, 20]
+            'Curriculum': [20, 20, 60],
+            'Human Resources': [10, 20, 70],
+            'Energy': [25, 25, 50],
+            'Infrastructure': [15, 20, 65]
         };
-        
+
+        var drillDownColors = {
+            'Technology': ['#cce5ff', '#66b3ff', '#0056b3'], // Light, Medium, Dark Blue
+            'Pedagogy': ['#f3e5f5', '#ba68c8', '#8e24aa'], // Light, Medium, Dark Purple
+            'Curriculum': ['#ffebee', '#ef5350', '#b71c1c'], // Light, Medium, Dark Red
+            'Human Resources': ['#e0f7fa', '#26c6da', '#006064'], // Light, Medium, Dark Teal
+            'Energy': ['#fff3e0', '#ffa726', '#e65100'], // Light, Medium, Dark Orange
+            'Infrastructure': ['#e8f5e9', '#66bb6a', '#2e7d32']  // Light, Medium, Dark Green
+        };
+
+        // Update the donut chart data and colors
         drilldownDonutChart.data.datasets[0].data = drillDownData[label];
+        drilldownDonutChart.data.datasets[0].backgroundColor = drillDownColors[label];
         drilldownDonutChart.update();
+
+        // Update the status legend colors
+        document.querySelector('.legend-item.started').style.backgroundColor = drillDownColors[label][0];
+        document.querySelector('.legend-item.in-progress').style.backgroundColor = drillDownColors[label][1];
+        document.querySelector('.legend-item.completed').style.backgroundColor = drillDownColors[label][2];
     }
 };
