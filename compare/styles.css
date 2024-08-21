@@ -63,6 +63,15 @@ nav a.active {
     padding: 10px;
     margin: 0 10px;
     font-size: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.state-selectors select:focus {
+    border-color: #007bff;
 }
 
 .cards {
@@ -76,6 +85,12 @@ nav a.active {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card.yellow {
@@ -113,7 +128,8 @@ nav a.active {
 }
 
 .pie-chart, .line-chart {
-    width: 45%;
+    width: 30%;
+    position: relative;
 }
 
 .line-charts {
@@ -122,5 +138,10 @@ nav a.active {
 }
 
 .line-chart {
-    width: 45%;
+    width: 30%;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
 }
