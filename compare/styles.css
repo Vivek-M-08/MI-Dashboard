@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+nav a.active {
+    color: #007bff;
+}
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+}
+
+#theme-select {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.theme-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.compare-section {
+    padding: 20px;
+}
+
+.state-selectors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.state-selectors select {
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card {
+    width: 20%;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card.yellow {
+    background-color: #f7f7af;
+}
+
+.card.blue {
+    background-color: #d6eaff;
+}
+
+.card.green {
+    background-color: #d4e7d5;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card .today {
+    font-weight: bold;
+    color: #555;
+}
+
+.charts {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.pie-chart, .line-chart {
+    width: 45%;
+}
+
+.line-charts {
+    display: flex;
+    justify-content: space-around;
+}
+
+.line-chart {
+    width: 45%;
+}
