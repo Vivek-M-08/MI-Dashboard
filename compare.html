@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Dashboard</title>
+    <link rel="stylesheet" href="compare-styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#" class="active">Compare</a>
+        </nav>
+        <div class="theme-switcher">
+            <select id="theme-select">
+                <option value="value">Value</option>
+            </select>
+            <div class="theme-icon"></div>
+        </div>
+    </header>
+
+    <section class="compare-section">
+        <div class="state-selectors">
+            <select id="state1-select">
+                <option value="state1">State 1</option>
+                <option value="state2">State 2</option>
+                <option value="state3">State 3</option>
+            </select>
+            <span>Vs</span>
+            <select id="state2-select">
+                <option value="state1">State 1</option>
+                <option value="state2">State 2</option>
+                <option value="state3">State 3</option>
+            </select>
+        </div>
+        <div class="cards">
+            <div class="card yellow">
+                <h2>20 Lakhs</h2>
+                <p>Total number of micro improvements triggered</p>
+                <p class="today">+20,000 Today</p>
+            </div>
+            <div class="card blue">
+                <h2>20 Lakhs</h2>
+                <p>Total number of micro improvements triggered</p>
+                <p class="today">+20,000 Today</p>
+            </div>
+            <div class="card green">
+                <h2>20 Lakhs</h2>
+                <p>Total number of micro improvements triggered</p>
+                <p class="today">+20,000 Today</p>
+            </div>
+            <div class="card yellow">
+                <h2>20 Lakhs</h2>
+                <p>Total number of micro improvements triggered</p>
+                <p class="today">+20,000 Today</p>
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="pie-chart">
+                <!-- Donut Chart 1 -->
+                <canvas id="pieChart1"></canvas>
+            </div>
+            <div class="pie-chart">
+                <!-- Donut Chart 2 -->
+                <canvas id="pieChart2"></canvas>
+            </div>
+        </div>
+
+        <div class="line-charts">
+            <div class="line-chart">
+                <!-- Line Chart 1 -->
+                <canvas id="lineChart1"></canvas>
+            </div>
+            <div class="line-chart">
+                <!-- Line Chart 2 -->
+                <canvas id="lineChart2"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="compare-script.js"></script>
+</body>
+</html>
